@@ -1,24 +1,20 @@
 import logo from './logo.svg';
-import './App.css';
+import LoginPage from 'components/LoginPage/LoginPage';
+import RegisterPage from 'components/RegisterPage/RegisterPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { authService } from 'fbase';
+import 'firebase/compat/auth';
+
+console.log(authService);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<LoginPage />} />
+        <Route exact path="/register" element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

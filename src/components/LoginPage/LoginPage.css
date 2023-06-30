@@ -1,0 +1,81 @@
+.login_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.logo_img{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}  
+
+.check_id_checkBox{
+    font-size: 14px;
+}
+
+.login_wrapper h3{
+    margin-bottom: 5px;
+}
+
+.auth-wrapper p {
+    color: #bf1650;
+}
+
+.login_wrapper p::before {
+    display: inline;
+    content: "⚠ ";
+}
+
+.login_wrapper .email, .password {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 11px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.login_wrapper button[type="submit"],
+.login_wrapper input[type="submit"] {
+    width: 100%;
+    background: #38E07D;
+    color: #fff;
+    /* text-transform: uppercase; */
+    border: none;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.login_wrapper button[type="submit"]:hover,
+.login_wrapper input[type="submit"]:hover {
+    background: #1ada6a;
+}
+
+.login_wrapper button[type="submit"]:active,
+.login_wrapper input[type="button"]:active,
+.login_wrapper input[type="submit"]:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+}
+
+.login_wrapper input:disabled {
+    opacity: 0.4;
+}
+
+.login_wrapper input[type="button"]:hover {
+    transition: 0.3s all;
+}
+
+.pass_forgot {
+    margin-top: 30px;
+}
