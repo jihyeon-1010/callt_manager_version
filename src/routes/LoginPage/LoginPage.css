@@ -1,5 +1,4 @@
 .login_content {
-    display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
@@ -21,8 +20,9 @@
     margin-bottom: 5px;
 }
 
-.auth-wrapper p {
+.login_wrapper p {
     color: #bf1650;
+    font-size: 14px;
 }
 
 .login_wrapper p::before {
@@ -35,11 +35,15 @@
     height: 35px;
     padding: 0 10px;
     box-sizing: border-box;
-    margin-bottom: 11px;
     border-radius: 3px;
     background-color: #ffffff;
     border-style: none;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.login_wrapper .password {
+    margin-top: 11px;
+    margin-bottom: 10px;
 }
 
 .login_wrapper button[type="submit"],
@@ -78,4 +82,8 @@
 
 .pass_forgot {
     margin-top: 30px;
+}
+
+.signUp{
+    text-align: center;
 }

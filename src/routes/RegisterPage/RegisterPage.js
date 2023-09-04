@@ -1,4 +1,4 @@
-import LoginPage from 'components/LoginPage/LoginPage';
+import LoginPage from 'routes/LoginPage/LoginPage';
 import { authService } from 'fbase';
 import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getDatabase, ref, set, child } from 'firebase/database';
 import md5 from "md5";
-import 'components/RegisterPage/RegisterPage.css';
+import 'routes/RegisterPage/RegisterPage.css';
 
 function RegisterPage() {
     const { 
@@ -90,7 +90,7 @@ function RegisterPage() {
                 />
                 {/* 비밀번호 미입력 시 에러메시지 출력 */}
                 {errors.password && errors.password.type === "required" && (
-                <p>비밀번호는 최소 6자리 이상이어야 합니다.</p>
+                <p>반드시 입력해야 하는 필수 사항입니다.</p>
                 )}
                 {/* 최소 6글자 미만 입력 시 에러메시지 출력 */}
                 {errors.password && errors.password.type === "minLength" && (
@@ -127,6 +127,7 @@ function RegisterPage() {
             </form> 
         </div>
     </div>
+    
   )
 }
 
