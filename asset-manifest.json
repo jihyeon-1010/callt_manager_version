@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/callt_manager_version.git/static/css/main.bd2448f0.css",
+    "main.js": "/callt_manager_version.git/static/js/main.3b90e576.js",
+    "static/media/14.png": "/callt_manager_version.git/static/media/14.06d311f916bcf79bee43.png",
+    "index.html": "/callt_manager_version.git/index.html",
+    "main.bd2448f0.css.map": "/callt_manager_version.git/static/css/main.bd2448f0.css.map",
+    "main.3b90e576.js.map": "/callt_manager_version.git/static/js/main.3b90e576.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd2448f0.css",
+    "static/js/main.3b90e576.js"
+  ]
+}
