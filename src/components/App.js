@@ -43,7 +43,7 @@ const App = () => {
           userObj={userObj}
         /> 
       ) : (
-        "initializing..."
+        "초기화중..."
       )}
     </>
   );

@@ -3,7 +3,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+
+.general_trash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Set the desired height */
+}
+
+.amount_content p1 {
+    margin-top: 30px;
+}
+
+.amount_content p2 {
+    margin-top: 20px;
+}
+
+.amount_content p3 {
+    color: rgb(36, 121, 49);
 }
 
 .trashAmount {
@@ -12,26 +30,23 @@
     height: 200px;
     border: rgb(136, 136, 136) solid 2px;
     border-radius: 10px;
-    margin-bottom: 50px;
 }
 
 .amount {
-    background: red;
+    background: rgb(36, 121, 49);
     width: 146px;
     height: 180px;
     border-radius: 8px;
-    margin-top: 16px;
+    margin-top: 16px; 
 }
 
 .call {
-  width: 100%;
-  padding: 7px 20px;
-  text-align: center;
-  color: white;
-  border-radius: 20px;
-  background-color: #1ada6a;
+    width: 100%;
+    padding: 7px 20px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    background-color: #1ada6a;
 }
 
-.amount_content p1 {
-    
-}
+

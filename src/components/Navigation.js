@@ -6,7 +6,7 @@ import { faUser, faHouse, faBarsProgress } from "@fortawesome/free-solid-svg-ico
 const Navigation = ({ userObj }) => {
   return (
     <nav>
-      <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
+      <ul style={{ display: "flex", justifyContent: "center", paddingTop: 50 }}>
         <li>
           <Link
             to="/"
@@ -26,7 +26,7 @@ const Navigation = ({ userObj }) => {
         </li>
         <li>
           <Link
-            to="/manager"
+            to="/loadcheck"
             style={{
               width: 90,
               display: "flex",

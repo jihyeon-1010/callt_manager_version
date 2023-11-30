@@ -3,10 +3,12 @@ import RegisterPage from 'routes/RegisterPage/RegisterPage';
 import Profile from 'routes/ManagerPage/Profile';
 import Home from 'routes/ManagerPage/Home';
 import ManagerPage from 'routes/ManagerPage/ManagerPage';
+import LoadCheck from 'routes/ManagerPage/LoadCheck';
 import Navigation from 'components/Navigation';
 import { authService } from 'fbase';
 import 'firebase/compat/auth';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { faDirections } from '@fortawesome/free-solid-svg-icons';
 
 const Router = ({ isLoggedin, userObj, refreshUser }) => {
     return (
@@ -29,8 +31,15 @@ const Router = ({ isLoggedin, userObj, refreshUser }) => {
                                 margin: "0 auto",
                                 display: "flex",
                                 justifyContent: "center", }}><Profile refreshUser={refreshUser} userObj={userObj} /></div>} />
+                            <Route exact path='/loadcheck' element={<div style={{
+                                // maxWidth: 890,
+                                // width: "100%",
+                                // display: "flex",
+                                // justifyContent: "center",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center", }}><LoadCheck /></div>} />
                         </>
-                        
                     ) : (
                         <>
                             <Route exact path='/' element={<LoginPage />} />
