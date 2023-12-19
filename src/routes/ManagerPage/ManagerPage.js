@@ -53,7 +53,7 @@ const ManagerPage = () => {
         const data = await response.json();
         const latestEntry = data.feeds[0];
         setChartData([latestEntry.field1]); // 가져온 센서 값으로 차트 데이터 업데이트
-        localStorage.setItem('chartData', JSON.stringify([latestEntry.field1])); //  // 차트 데이터를 로컬 스토리지에 저장
+        localStorage.setItem('chartData', JSON.stringify([latestEntry.field1])); // 차트 데이터를 로컬 스토리지에 저장
       } else {
         throw new Error('Failed to fetch data');
       }
@@ -79,6 +79,37 @@ const ManagerPage = () => {
       const trashAmount = chartData[0];
       const trashAmountPercentage = getTrashAmountPercentage(trashAmount);
       const trashAmountText = getTrashAmountText(trashAmount);
+
+      let backgroundColor = '';
+      let borderColor = '';
+
+      // 적재량 텍스트에 따른 그래프 색상 변경
+      switch (trashAmountText) {
+        case '매우 많음':
+          backgroundColor = 'rgba(255, 99, 71, 0.5)';
+          borderColor = 'rgba(255, 99, 71, 0.9)';
+          break;
+        case '많음':
+          backgroundColor = 'rgba(255, 99, 71, 0.3)';
+          borderColor = 'rgba(255, 99, 71, 0.9)';
+          break;
+        case '보통':
+          backgroundColor = 'rgba(0, 128, 0, 0.3)';
+          borderColor = 'rgba(0, 128, 0, 0.9)';
+          break;
+        case '적음':
+          backgroundColor = 'rgba(0, 128, 0, 0.5)';
+          borderColor = 'rgba(0, 128, 0, 0.9)';
+          break;
+        case '매우 적음':
+          backgroundColor = 'rgba(0, 128, 0, 0.7)';
+          borderColor = 'rgba(0, 128, 0, 0.9)';
+          break;
+        default:
+          backgroundColor = 'rgba(0, 0, 0, 0.2)';
+          borderColor = 'rgba(0, 0, 0, 1)';
+          break;
+      }
 
       // const text = getTrashAmountText(trashAmount);
       // setTrashAmountText(text); // 쓰레기 양 상태 변수 업데이트
@@ -118,7 +149,9 @@ const ManagerPage = () => {
         const trashAmountText = getTrashAmountText(trashAmount);
         chartRef.current.chart.data.datasets[0].data = [trashAmountPercentage];
         chartRef.current.chart.data.labels = [`모델명 : Call Me Trash To Treasure \n 쓰레기 양 : ${trashAmountText}`];
+        chartRef.current.chart.data.datasets[0].backgroundColor = backgroundColor;
         chartRef.current.chart.data.datasets[0].borderRadius = 10;
+        chartRef.current.chart.data.datasets[0].borderColor = borderColor;
         chartRef.current.chart.update();
       }
     }

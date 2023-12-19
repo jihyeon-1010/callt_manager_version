@@ -108,11 +108,11 @@
   transition: 0.3s all;
 }
 
-.auth-wrapper button[type="submit"],
+/* .auth-wrapper button[type="submit"],
 .auth-wrapper input[type="button"],
 .auth-wrapper input[type="submit"] {
   -webkit-appearance: none;
-}
+} */
 
 .auth-wrapper button[type="button"] {
   display: block;

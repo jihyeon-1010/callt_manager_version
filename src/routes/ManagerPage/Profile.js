@@ -4,26 +4,32 @@ import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 
 const Profile = ({ userObj, refreshUser }) => {
-    const navigate = useNavigate();
-    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);  // 관리자 프로필 name 관리 상태변수
+    // 네비게이션을 위한 함수를 가져옴
+    const navigate = useNavigate(); 
+    // 관리자 프로필 name 관리 상태변수
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);  
 
+    // 로그아웃 버튼 클릭 시 실행
     const onLogOutClick = () => {
-        authService.signOut();
-        navigate("/");
+        authService.signOut();  // 로그아웃
+        navigate("/");  // 로그인 페이지로 이동
     }
 
+    // 입력값이 변경될 때 실행
     const onChange = (event) => {
         const {
             target: { value },
         } = event;
-        setNewDisplayName(value);
+        setNewDisplayName(value);  // 입력된 값을 새로운 이름으로 설정
     }
 
+    // 프로필 업데이트
     const onSubmit = async (event) => {
         event.preventDefault();
         if (userObj.displayName !== newDisplayName) {
+            // 현재 사용자의 displayName을 새로운 이름으로 업데이트
             await updateProfile(authService.currentUser, { displayName: newDisplayName });
-            refreshUser();
+            refreshUser();  // 사용자 정보 새로고침
         }
     };
 

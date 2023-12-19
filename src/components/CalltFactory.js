@@ -9,8 +9,8 @@ import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 
 const CalltFactory = ({ userObj }) => {
-    const [share, setShare] = useState("");
-    const [attachment, setAttachment] = useState("");  // 컴퓨터에서 파일 위치(url)를 관리하는 상태변수
+    const [share, setShare] = useState("");  // 입력된 쓰레기통 상태를 관리하기 위한 상태 변수 
+    const [attachment, setAttachment] = useState("");  // 컴퓨터에서 파일 위치(url)를 관리하는 상태 변수
 
     // 파이어스토어에 데이터 저장
     const onSubmit = async (event) => {
@@ -26,23 +26,24 @@ const CalltFactory = ({ userObj }) => {
         }
         
         const shareObj = {
-            text: share,
-            createdAt: Date.now(),
-            creatorId: userObj.uid,
-            attachmentUrl,
+            text: share,  // 쓰레기통 상태 내용
+            createdAt: Date.now(),  // 생성 시간
+            creatorId: userObj.uid,  // 생성자 ID
+            attachmentUrl,  // 첨부 파일 url
         }
 
-        await addDoc(collection(dbService, "information"), shareObj);
-        setShare("");
-        setAttachment("");
+        await addDoc(collection(dbService, "information"), shareObj);  // 파이어스토어에 정보 추가
+        setShare("");  // 입력창 초기화
+        setAttachment("");  // 첨부 파일 초기화
     }
 
+    // 입력값 변화 처리
     const onChange = (event) => {
     event.preventDefault();
     const {
       target: { value },
     } = event;
-    setShare(value);
+    setShare(value);  // 입력된 쓰레기통 상태 업데이트
     }
 
     // 파일 첨부 양식 만들기
@@ -56,14 +57,15 @@ const CalltFactory = ({ userObj }) => {
             const {
                 currentTarget: { result },
             } = finishedEvent;
-            setAttachment(result);
+            setAttachment(result);  // 첨부파일 url 업데이트
         };
         if (Boolean(theFile)) {
-            reader.readAsDataURL(theFile);
+            reader.readAsDataURL(theFile);  // 파일 url 읽어오기
         }
     };
 
-    const onClearAttachment = () => setAttachment("");
+    // 첨부파일 제거
+    const onClearAttachment = () => setAttachment("");  // 첨부파일 초기화
 
     return (
         <form onSubmit={onSubmit} className='factoryForm'>
